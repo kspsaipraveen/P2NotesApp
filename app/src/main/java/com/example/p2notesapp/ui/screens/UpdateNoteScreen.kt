@@ -142,7 +142,7 @@ fun UpdateNoteScreen(navController: NavHostController, noteId: Int, viewModel: N
                             ),
                     onClick = {
                         viewModel.updateNote(noteEntity = NoteEntity(noteId, title, description))
-                        Toast.makeText(context, "update success", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "note updated", Toast.LENGTH_SHORT).show()
                         navController.popBackStack()
                     },
                     colors = ButtonDefaults.buttonColors(
@@ -183,7 +183,7 @@ fun UpdateNoteScreen(navController: NavHostController, noteId: Int, viewModel: N
                     onClick = {
                         viewModel.deleteNote(noteEntity = NoteEntity(noteId, title, description))
                         showDialog = false
-                        Toast.makeText(context, "delete success", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "note deleted", Toast.LENGTH_SHORT).show()
                         navController.popBackStack()
                     },
                 ) {
