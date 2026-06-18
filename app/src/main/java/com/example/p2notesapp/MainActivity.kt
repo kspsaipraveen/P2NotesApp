@@ -19,36 +19,36 @@ import com.example.p2notesapp.ui.navigation.NavGraph
 import com.example.p2notesapp.ui.screens.NoteScreen
 import com.example.p2notesapp.ui.theme.P2NotesAppTheme
 import com.example.p2notesapp.viewmodel.NoteViewModel
-import com.example.p2notesapp.viewmodel.NoteViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    private lateinit var noteViewModel: NoteViewModel
+//    private lateinit var noteViewModel: NoteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 1. create a data base object
-        val database = NoteDataBase.getDataBase(this)
-
-        // 2. create repo with db object
-        val repository = NoteRepository(database.noteDAO())
-
-        //3. then viewmodel factory
-        val factory  = NoteViewModelFactory(repository)
-
-        // 4. view model
-        noteViewModel = ViewModelProvider(
-            this,
-            factory
-        )[NoteViewModel::class.java]
+//
+//        // 1. create a data base object
+//        val database = NoteDataBase.getDataBase(this)
+//
+//        // 2. create repo with db object
+//        val repository = NoteRepository(database.noteDAO())
+//
+//        //3. then viewmodel factory
+//        val factory  = NoteViewModelFactory(repository)
+//
+//        // 4. view model
+//        noteViewModel = ViewModelProvider(
+//            this,
+//            factory
+//        )[NoteViewModel::class.java]
 
         enableEdgeToEdge()
         setContent {
 
             P2NotesAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    NavGraph(viewModel = noteViewModel)
-                }
+                    NavGraph()
+
             }
         }
     }

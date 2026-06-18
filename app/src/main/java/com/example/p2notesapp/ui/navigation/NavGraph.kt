@@ -1,6 +1,7 @@
 package com.example.p2notesapp.ui.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -11,7 +12,7 @@ import com.example.p2notesapp.viewmodel.NoteViewModel
 
 
 @Composable
-fun NavGraph(viewModel: NoteViewModel) {
+fun NavGraph(viewModel: NoteViewModel = hiltViewModel()) {
 
     val navController = rememberNavController()
 
